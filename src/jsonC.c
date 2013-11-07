@@ -26,8 +26,7 @@ struct json_object* br_json_load_from_file (char *filename)
 /*****************************************/
 int br_json_to_file (char *filename, json_object *obj)
 {
-	// 0 : pass
-	// -1: fail
+	// 0 : pass , -1: fail
 	return json_object_to_file(filename, obj);
 }
 
@@ -97,41 +96,50 @@ void br_json_update_boolean (json_object *obj, char *_key, bool _value)
 /*****************************************/
 char* br_json_get_string (json_object *obj, char *_key)
 {
+	bool exist=false;
 	char *data;
 	json_object_object_foreach(obj, key, val) {
 		if (strcmp(key, _key) == 0) {
 			if (json_object_get_type(val) == json_type_string) {
 				data = (char*) json_object_get_string(val);
+				exist=true;
+				break;
 			}
 		}
 	}
-	return (data != NULL) ? data : NULL;
+	return (exist == true) ? data : NULL;
 }
 
 int br_json_get_integer (json_object *obj, char *_key)
 {
-	int data=0;
+	bool exist=false;
+	int data;
 	json_object_object_foreach(obj, key, val) {
 		if (strcmp(key, _key) == 0) {
 			if (json_object_get_type(val) == json_type_int) {
 				data = json_object_get_int(val);
+				exist=true;
+				break;
 			}
 		}
 	}
-	return data;
+	return (exist == true) ? data : -1;
 }
 
 bool br_json_get_boolean (json_object *obj, char *_key)
 {
+	bool exist=false;
 	bool data;
 	json_object_object_foreach(obj, key, val) {
 		if (strcmp(key, _key) == 0) {
 			if (json_object_get_type(val) == json_type_boolean) {
 				data = json_object_get_boolean(val);
+				exist=true;
+				break;
 			}
 		}
 	}
-	return data;
+	return (exist == true) ? data : false;
 }
 
 // main function only for test
@@ -160,8 +168,6 @@ void main(void)
 
 	// Get boolean value from object by key
 	bool bRet = br_json_get_boolean(obj, "boolean");
-
-	
 
 	DEBUG("%s\n", json_object_to_json_string(obj));
 
