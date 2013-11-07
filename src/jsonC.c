@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <assert.h>
 #include <json/json.h>
 #include "jsonC.h"
 
@@ -8,6 +9,7 @@
 /*****************************************/
 struct json_object* br_json_load_from_file (char *filename)
 {
+	assert(filename);
 	json_object * jobj = json_object_from_file (filename);
 
 #ifdef _DEBUG
@@ -26,6 +28,8 @@ struct json_object* br_json_load_from_file (char *filename)
 /*****************************************/
 int br_json_to_file (char *filename, json_object *obj)
 {
+	assert(filename);
+	
 	// 0 : pass , -1: fail
 	return json_object_to_file(filename, obj);
 }
@@ -35,6 +39,9 @@ int br_json_to_file (char *filename, json_object *obj)
 /*****************************************/
 void br_json_add_string (json_object *obj, char *_key, char *_value)
 {
+	assert(_key);
+	assert(_value);
+	
 	/* Creating a json string */
 	json_object *jstring = json_object_new_string(_value);
 
@@ -44,6 +51,8 @@ void br_json_add_string (json_object *obj, char *_key, char *_value)
 
 void br_json_add_integer (json_object *obj, char *_key, int _value)
 {
+	assert(_key);
+	
 	/* Creating a json integer */
 	json_object *jint = json_object_new_int(_value);
 
@@ -53,6 +62,8 @@ void br_json_add_integer (json_object *obj, char *_key, int _value)
 
 void br_json_add_boolean (json_object *obj, char *_key, bool _value)
 {
+	assert(_key);
+
 	/* Creating a json boolean */
 	json_object *jbool = json_object_new_boolean(_value);
 
@@ -65,6 +76,8 @@ void br_json_add_boolean (json_object *obj, char *_key, bool _value)
 /*****************************************/
 void br_json_del_object (json_object *obj, char *_key)
 {
+	assert(_key);
+
 	/* Creating a json string */
 	json_object_object_del(obj, _key);
 }
@@ -75,18 +88,25 @@ void br_json_del_object (json_object *obj, char *_key)
 /*****************************************/
 void br_json_update_string (json_object *obj, char *_key, char *_value)
 {
+	assert(_key);
+	assert(_value);
+	
 	/* Creating a json string */
 	br_json_add_string(obj, _key, _value);
 }
 
 void br_json_update_integer (json_object *obj, char *_key, int _value)
 {
+	assert(_key);
+	
 	/* Creating a json string */
 	br_json_add_integer(obj, _key, _value);
 }
 
 void br_json_update_boolean (json_object *obj, char *_key, bool _value)
 {
+	assert(_key);
+	
 	/* Creating a json string */
 	br_json_add_boolean(obj, _key, _value);
 }
@@ -96,6 +116,8 @@ void br_json_update_boolean (json_object *obj, char *_key, bool _value)
 /*****************************************/
 char* br_json_get_string (json_object *obj, char *_key)
 {
+	assert(_key);
+	
 	bool exist=false;
 	char *data;
 	json_object_object_foreach(obj, key, val) {
@@ -112,6 +134,8 @@ char* br_json_get_string (json_object *obj, char *_key)
 
 int br_json_get_integer (json_object *obj, char *_key)
 {
+	assert(_key);
+
 	bool exist=false;
 	int data;
 	json_object_object_foreach(obj, key, val) {
@@ -128,6 +152,8 @@ int br_json_get_integer (json_object *obj, char *_key)
 
 bool br_json_get_boolean (json_object *obj, char *_key)
 {
+	assert(_key);
+	
 	bool exist=false;
 	bool data;
 	json_object_object_foreach(obj, key, val) {
