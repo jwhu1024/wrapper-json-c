@@ -1,4 +1,2 @@
-wrapper-json-c
-==============
-
-wrapper-json-c
+json-c wrapper
+-----
