@@ -1,0 +1,3 @@
+SET(SRC_LIST jsonC.c)
+ADD_EXECUTABLE(jsonC ${SRC_LIST})
+TARGET_LINK_LIBRARIES(jsonC json-c json)
