@@ -1,10 +1,14 @@
 json-c wrapper
 -----
 
-How to compile?
+Setup before compile this wrapper:
+- Clone the json-c from https://github.com/json-c/json-c
+- ./autogen.sh
+- ./configure
+- make
+- make install
+
+How to compile wrapper?
 
 `cd build && cmake ..`
 
-How to use?
-- `#include "jsonC.h`
-- `put jsonC.c under your working directory`
