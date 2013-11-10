@@ -217,6 +217,7 @@ char* br_json_query_string (json_object *obj, char *_key)
 	}
 }
 
+// If no conversion exists then 0 is returned and errno is set to EINVAL.
 int br_json_query_integer (json_object *obj, char *_key)
 {
 	int data = br_json_get_integer(obj, _key);
@@ -228,7 +229,7 @@ int br_json_query_integer (json_object *obj, char *_key)
 				// Get sub object for parsing
 				struct json_object *sub_obj = json_object_object_get(obj, key);
 				data = br_json_query_integer(sub_obj, _key);
-				if (data != -1) {
+				if (data != 0) {
 					return data;
 				}
 			}
@@ -291,7 +292,8 @@ void main(void)
     br_json_del_object(obj, "company");
 
     // Get integer value from object by key
-    int iResult = br_json_query_integer(obj, "integer");
+    int iResult = br_json_query_integer(obj, "integer2");
+	DEBUG("iResult : %d\n", iResult);
 
     // Get boolean value from object by key
 	bool bRet = br_json_query_boolean(obj, "boolean");
