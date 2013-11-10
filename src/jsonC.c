@@ -229,7 +229,7 @@ int br_json_query_integer (json_object *obj, char *_key)
 				// Get sub object for parsing
 				struct json_object *sub_obj = json_object_object_get(obj, key);
 				data = br_json_query_integer(sub_obj, _key);
-				if (data != 0) {
+				if (data != -1) {
 					return data;
 				}
 			}
