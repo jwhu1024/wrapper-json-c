@@ -239,7 +239,7 @@ int br_json_query_integer (json_object *obj, char *_key)
 	}
 }
 
-int br_json_query_boolean (json_object *obj, char *_key)
+bool br_json_query_boolean (json_object *obj, char *_key)
 {
 	bool data = br_json_get_boolean(obj, _key);
 	
