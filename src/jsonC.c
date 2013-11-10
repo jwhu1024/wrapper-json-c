@@ -293,7 +293,6 @@ void main(void)
 
     // Get integer value from object by key
     int iResult = br_json_query_integer(obj, "integer2");
-	DEBUG("iResult : %d\n", iResult);
 
     // Get boolean value from object by key
 	bool bRet = br_json_query_boolean(obj, "boolean");
