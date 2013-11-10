@@ -2,7 +2,7 @@
  *  File : jsonC.c
  *  Description : Wrapper for json-C
  *	Date : 2013/11/11
- *  Author : lester_hu@bandrich
+ *  Author : lester_hu@bandrich.com
  *  Copyright BandRich .Inc All rights reserved.
  */
 #include <stdio.h>
