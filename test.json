@@ -1,5 +1,7 @@
 {
 	"company" : "BandRich .Inc",
+	"intest" : 18,
+	"bool" : true,
 	"glossary": {
         "title": "example glossary",
 		"GlossDiv": {
@@ -23,6 +25,5 @@
                 }
             }
         }
-    },
-	"bool" : true
+    }
 }
