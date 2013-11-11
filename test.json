@@ -1,29 +1,10 @@
 {
-	"company" : "BandRich .Inc",
-	"intest" : 18,
-	"bool" : true,
-	"glossary": {
-        "title": "example glossary",
-		"GlossDiv": {
-			"lv3" : "last value",
-			"GlossList": {
-                "GlossEntry": {
-					"integer" : 3,
-					"boolean" : true,
-                    "ID": "SGML",
-					"SortAs": "SGML",
-					"GlossTerm": "Standard Generalized Markup Language",
-					"Acronym": "SGML",
-					"Abbrev": "ISO 8879:1986",
-					"GlossDef": {
-                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
-						"GlossSeeAlso": {
-							"GML" : "XML3"
-						}
-                    },
-					"GlossSee": "markup"
-                }
-            }
-        }
+	"string1" : "BandRich .Inc",
+	"integer1" : 1,
+	"boolean1" : true,
+	"object": {
+		"string2" : "BandRich .Inc All Rights",
+		"integer2" : 2,
+		"boolean2" : false
     }
 }
