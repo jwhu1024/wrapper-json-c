@@ -260,8 +260,3 @@ void br_json_set_integer (json_object *obj, char *_key, int _value)
 	return;
 }
 
-void main(void)
-{
-        // do function call here...
-        return;
-}
