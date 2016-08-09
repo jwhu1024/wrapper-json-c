@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <assert.h>
-#include <json/json.h>
+#include "json.h"
 
 #ifdef _PRETTY_PRINT_
 #define JSON_FORMAT JSON_C_TO_STRING_PRETTY
