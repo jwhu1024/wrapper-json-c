@@ -7,5 +7,3 @@ sh autogen.sh
 make
 make install
 make check
-
-export LD_LIBRARY_PATH=/usr/local/lib
