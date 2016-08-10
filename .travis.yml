@@ -19,7 +19,8 @@ script:
     - make -j4
 
 after_script:
-    - ./build/test/json-test
+    - cd build/test
+    - ./json-test
 
 notifications:
     email:
