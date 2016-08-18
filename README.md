@@ -1,4 +1,4 @@
-json-c wrapper
+json-c wrapper [![Build Status](https://travis-ci.org/jwhu1024/wrapper-json-c.svg?branch=master)](https://travis-ci.org/jwhu1024/wrapper-json-c)
 -----
 
 Setup before compile this wrapper:
